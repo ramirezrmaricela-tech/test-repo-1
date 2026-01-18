@@ -554,35 +554,35 @@
                 depósito o efectivo.</p>
               <div class="mt-3 rounded-2xl border border-cocoa-700/20 bg-white/80 p-4">
                 <div class="grid gap-3">
-                  <div class="flex items-center justify-between gap-3">
+                  <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div class="min-w-0">
                       <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">NÚMERO DE TARJETA</p>
-                      <p id="giftCardNumber" class="mt-1 break-all font-mono text-base font-extrabold text-slate-900">XXXX XXXX XXXX XXXX</p>
+                      <p id="giftCardNumber" class="mt-1 break-all font-mono text-sm font-extrabold text-slate-900 sm:text-base">XXXX XXXX XXXX XXXX</p>
                     </div>
                     <button
                       id="copyGiftCardBtn"
                       type="button"
-                      class="btn-pop inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                      class="btn-pop inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 sm:w-auto"
                     >
                       📋 Copiar
                     </button>
                   </div>
 
-                  <div class="flex items-center justify-between gap-3">
+                  <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div class="min-w-0">
                       <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">CLABE INTERBANCARIA</p>
-                      <p id="giftClabe" class="mt-1 break-all font-mono text-base font-extrabold text-slate-900">XXXXXXXXXXXXXXXXXX</p>
+                      <p id="giftClabe" class="mt-1 break-all font-mono text-sm font-extrabold text-slate-900 sm:text-base">XXXXXXXXXXXXXXXXXX</p>
                     </div>
                     <button
                       id="copyGiftClabeBtn"
                       type="button"
-                      class="btn-pop inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                      class="btn-pop inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 sm:w-auto"
                     >
                       📋 Copiar
                     </button>
                   </div>
 
-                  <div class="flex items-center justify-between gap-3">
+                  <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div class="min-w-0">
                       <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">BENEFICIARIO</p>
                       <p id="giftBeneficiary" class="mt-1 break-words text-sm font-extrabold text-slate-900">NOMBRE APELLIDO</p>
@@ -590,7 +590,7 @@
                     <button
                       id="copyGiftBeneficiaryBtn"
                       type="button"
-                      class="btn-pop inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                      class="btn-pop inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 sm:w-auto"
                     >
                       📋 Copiar
                     </button>
@@ -691,8 +691,8 @@
         // Opcional: link directo a un MP3/archivo de audio para el player (si no, se queda vacío)
         songUrl: "resources/music/i-love-it.mp3",
         // Regalos
-        giftCardNumber: "XXXX XXXX XXXX XXXX",
-        giftClabe: "XXXXXXXXXXXXXXXXXX",
+        giftCardNumber: "1234 1234 1234 1234",
+        giftClabe: "1234567899876543210",
         giftBeneficiary: "NOMBRE APELLIDO",
       };
 
