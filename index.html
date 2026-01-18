@@ -282,7 +282,7 @@
             </div>
           </div>
 
-          <div class="mt-5 rounded-3xl border border-slate-100 bg-white p-5 shadow-soft">
+          <div class="mt-5 min-h-[230px] rounded-3xl border border-slate-100 bg-white p-5 shadow-soft">
             <!-- Altavoces + visualizer -->
             <div class="flex items-center justify-between gap-3">
               <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/80 text-slate-800 shadow-soft" aria-hidden="true">
@@ -290,7 +290,7 @@
               </div>
 
               <div class="flex-1">
-                <div id="songViz" class="grid grid-cols-12 items-end gap-1">
+                <div id="songViz" class="h-10 overflow-hidden grid grid-cols-12 items-end gap-1">
                   <div class="viz-bar rounded-full bg-blush-300"></div>
                   <div class="viz-bar rounded-full bg-blush-300"></div>
                   <div class="viz-bar rounded-full bg-blush-300"></div>
@@ -312,9 +312,13 @@
               </div>
             </div>
 
-            <p id="autoplayHint" class="mt-3 hidden text-xs text-slate-600" aria-live="polite"></p>
+            <p
+              id="autoplayHint"
+              class="mt-3 min-h-[1.25rem] text-xs text-slate-600 opacity-0 transition-opacity"
+              aria-live="polite"
+            ></p>
 
-            <audio id="songPlayer" class="mt-3 w-full" controls preload="none" autoplay muted playsinline>
+            <audio id="songPlayer" class="mt-3 h-14 w-full" controls preload="none" autoplay muted playsinline>
               Tu navegador no soporta audio.
             </audio>
           </div>
@@ -531,6 +535,85 @@
         </div>
       </section>
 
+      <!-- Regalos -->
+      <section id="regalos" class="mt-10">
+        <div class="poster-panel p-6">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h2 class="font-serif text-3xl font-extrabold tracking-tight text-slate-900">Regalos</h2>
+              <p class="mt-1 text-sm text-slate-700">Tu presencia es lo más importante y hará este día aún más especial ✨ 🩷</p>
+            </div>
+            <div class="grid h-12 w-12 place-items-center rounded-2xl bg-blush-50 text-blush-600">
+              <span aria-hidden="true">🎁</span>
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-4">
+            <article class="rounded-3xl border border-slate-100 bg-white p-5 shadow-soft">
+              <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">Si deseas regalarme algo más, puedes hacerlo mediante
+                depósito o efectivo.</p>
+              <div class="mt-3 rounded-2xl border border-cocoa-700/20 bg-white/80 p-4">
+                <div class="grid gap-3">
+                  <div class="flex items-center justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">NÚMERO DE TARJETA</p>
+                      <p id="giftCardNumber" class="mt-1 break-all font-mono text-base font-extrabold text-slate-900">XXXX XXXX XXXX XXXX</p>
+                    </div>
+                    <button
+                      id="copyGiftCardBtn"
+                      type="button"
+                      class="btn-pop inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                    >
+                      📋 Copiar
+                    </button>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">CLABE INTERBANCARIA</p>
+                      <p id="giftClabe" class="mt-1 break-all font-mono text-base font-extrabold text-slate-900">XXXXXXXXXXXXXXXXXX</p>
+                    </div>
+                    <button
+                      id="copyGiftClabeBtn"
+                      type="button"
+                      class="btn-pop inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                    >
+                      📋 Copiar
+                    </button>
+                  </div>
+
+                  <div class="flex items-center justify-between gap-3">
+                    <div class="min-w-0">
+                      <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">BENEFICIARIO</p>
+                      <p id="giftBeneficiary" class="mt-1 break-words text-sm font-extrabold text-slate-900">NOMBRE APELLIDO</p>
+                    </div>
+                    <button
+                      id="copyGiftBeneficiaryBtn"
+                      type="button"
+                      class="btn-pop inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                    >
+                      📋 Copiar
+                    </button>
+                  </div>
+                </div>
+
+                <p id="giftCopyHint" class="mt-3 text-xs font-semibold text-slate-600" aria-live="polite"></p>
+
+                <p class="mt-3 text-xs font-semibold tracking-[0.2em] text-slate-500">CONCEPTO</p>
+                <p class="mt-1 text-base font-extrabold text-blush-600">POOL REBES 🛟🤠</p>
+              </div>
+            </article>
+
+            <article class="rounded-3xl border border-slate-100 bg-white p-5 shadow-soft">
+              <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">SOBRES</p>
+              <p class="mt-2 text-sm text-slate-700">
+                El día de la fiesta habrá una sección especial donde podrás dejar tu regalo y/o una cartita con tus mejores deseos para mí 💌✨
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- Confirmar asistencia -->
       <section id="confirmar" class="mt-10">
         <div class="poster-panel p-6">
@@ -607,6 +690,10 @@
         googleFormUrl: "PEGA_AQUI_TU_GOOGLE_FORM",
         // Opcional: link directo a un MP3/archivo de audio para el player (si no, se queda vacío)
         songUrl: "resources/music/i-love-it.mp3",
+        // Regalos
+        giftCardNumber: "XXXX XXXX XXXX XXXX",
+        giftClabe: "XXXXXXXXXXXXXXXXXX",
+        giftBeneficiary: "NOMBRE APELLIDO",
       };
 
       const $ = (id) => document.getElementById(id);
@@ -667,6 +754,49 @@
       setTextIfExists("massLocationText", EVENT.massLocationText);
       const massMapsLink = $("massMapsLink");
       if (massMapsLink) massMapsLink.href = EVENT.massMapsUrl;
+
+      // Regalos
+      setTextIfExists("giftCardNumber", EVENT.giftCardNumber || "XXXX XXXX XXXX XXXX");
+      setTextIfExists("giftClabe", EVENT.giftClabe || "XXXXXXXXXXXXXXXXXX");
+      setTextIfExists("giftBeneficiary", EVENT.giftBeneficiary || "NOMBRE APELLIDO");
+
+      async function copyTextToClipboard(text) {
+        // Clipboard API puede fallar en algunos contextos; manejamos ese caso con fallback.
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+
+      function wireCopy(btnId, valueId, label) {
+        const btn = $(btnId);
+        const valueEl = $(valueId);
+        const hint = $("giftCopyHint");
+        if (!btn || !valueEl || !hint) return;
+
+        btn.addEventListener("click", async () => {
+          try {
+            const text = (valueEl.textContent || "").trim();
+            await copyTextToClipboard(text);
+            hint.textContent = `✅ ${label} copiado`;
+          } catch {
+            hint.textContent = `No se pudo copiar ${label}.`;
+          }
+        });
+      }
+
+      wireCopy("copyGiftCardBtn", "giftCardNumber", "Tarjeta");
+      wireCopy("copyGiftClabeBtn", "giftClabe", "CLABE");
+      wireCopy("copyGiftBeneficiaryBtn", "giftBeneficiary", "Beneficiario");
       // Player de canción:
       // - Autoplay con sonido es bloqueado por muchos navegadores.
       // - Estrategia: autoplay en mute (sí se permite) + activar sonido en el primer toque/click en cualquier parte.
@@ -675,7 +805,8 @@
 
       async function tryAutoplayMuted() {
         if (!songEl || !EVENT.songUrl) return;
-        songEl.src = EVENT.songUrl;
+        // Usar URL absoluta para que no falle con ?num_pases u otros parámetros
+        songEl.src = new URL(EVENT.songUrl, window.location.href).toString();
         songEl.muted = true;
 
         try {
@@ -683,13 +814,13 @@
           await songEl.play();
           if (autoplayHint) {
             autoplayHint.textContent = "Toca en cualquier parte para activar el sonido. 🤠🛟";
-            autoplayHint.classList.remove("hidden");
+            autoplayHint.classList.remove("opacity-0");
           }
         } catch {
           // Si falla incluso en mute, no podemos forzarlo sin interacción.
           if (autoplayHint) {
             autoplayHint.textContent = "Tu navegador bloqueó la reproducción automática. Toca la pantalla para iniciar.";
-            autoplayHint.classList.remove("hidden");
+            autoplayHint.classList.remove("opacity-0");
           }
         }
       }
@@ -698,7 +829,7 @@
       if (songEl && autoplayHint) {
         songEl.addEventListener("error", () => {
           autoplayHint.textContent = "No se pudo cargar la canción. Revisa la ruta del MP3 o abre la invitación con servidor local.";
-          autoplayHint.classList.remove("hidden");
+          autoplayHint.classList.remove("opacity-0");
         });
       }
 
@@ -707,26 +838,29 @@
 
         const enableSound = () => {
           try {
+            // Asegurar src antes de reproducir (por si autoplay falló)
+            if (!songEl.src) songEl.src = new URL(EVENT.songUrl, window.location.href).toString();
+            songEl.load();
             songEl.muted = false;
             songEl.volume = 1;
             const p = songEl.play();
             if (p && typeof p.catch === "function") {
               p.then(() => {
-                if (autoplayHint) autoplayHint.classList.add("hidden");
+                if (autoplayHint) autoplayHint.classList.add("opacity-0");
               }).catch(() => {
                 if (autoplayHint) {
                   autoplayHint.textContent = "Activa el sonido desde los controles del reproductor.";
-                  autoplayHint.classList.remove("hidden");
+                  autoplayHint.classList.remove("opacity-0");
                 }
               });
             } else {
               // Fallback viejo
-              if (autoplayHint) autoplayHint.classList.add("hidden");
+              if (autoplayHint) autoplayHint.classList.add("opacity-0");
             }
           } catch {
             if (autoplayHint) {
               autoplayHint.textContent = "Activa el sonido desde los controles del reproductor.";
-              autoplayHint.classList.remove("hidden");
+              autoplayHint.classList.remove("opacity-0");
             }
           }
         };
@@ -742,64 +876,49 @@
       armUnmuteOnFirstGesture();
 
       /**
-       * Visualizer (barras) al ritmo del sonido.
-       * Nota: WebAudio requiere gesto del usuario en muchos navegadores (iOS/Chrome).
-       * Por eso se intenta iniciar cuando el audio esté en "play" y/o con el primer gesto.
+       * Visualizer (barras) SIN WebAudio:
+       * - No bloquea ni redirige el audio (más compatible en móvil).
+       * - Se anima con una onda basada en currentTime para dar efecto “al ritmo”.
        */
       const songViz = $("songViz");
-      let __vizStarted = false;
+      let __vizRaf = 0;
 
-      function startVisualizer() {
-        if (__vizStarted) return;
+      function stopViz() {
+        if (__vizRaf) cancelAnimationFrame(__vizRaf);
+        __vizRaf = 0;
+      }
+
+      function startViz() {
         if (!songEl || !songViz) return;
-
-        // Evitar múltiples inicializaciones del MediaElementSource.
-        __vizStarted = true;
-
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (!AudioCtx) return;
-
-        const ctx = new AudioCtx();
-        const analyser = ctx.createAnalyser();
-        analyser.fftSize = 256;
-
-        const source = ctx.createMediaElementSource(songEl);
-        source.connect(analyser);
-        analyser.connect(ctx.destination);
+        if (__vizRaf) return;
 
         const bars = Array.from(songViz.querySelectorAll(".viz-bar"));
-        const data = new Uint8Array(analyser.frequencyBinCount);
 
-        function tick() {
-          analyser.getByteFrequencyData(data);
-          const step = Math.max(1, Math.floor(data.length / bars.length));
+        const tick = () => {
+          const t = songEl.currentTime || 0;
+          const playing = !songEl.paused && !songEl.ended;
 
           for (let i = 0; i < bars.length; i++) {
-            const v = data[i * step] / 255; // 0..1
-            const h = Math.round(6 + v * 28); // px
+            const phase = i * 0.45;
+            const wave = 0.5 + 0.5 * Math.sin(t * 6 + phase);
+            const bounce = 0.5 + 0.5 * Math.sin(t * 2.3 + phase * 1.7);
+            const v = playing ? (0.25 + 0.75 * wave * bounce) : 0.15;
+            const h = Math.round(6 + v * 28);
             bars[i].style.height = `${h}px`;
             bars[i].style.opacity = String(0.55 + v * 0.45);
           }
 
-          requestAnimationFrame(tick);
-        }
-
-        // Si está suspendido, intentamos reanudar en el primer gesto.
-        if (ctx.state === "suspended") {
-          const resume = () => ctx.resume().catch(() => {});
-          window.addEventListener("pointerdown", resume, { once: true, passive: true });
-          window.addEventListener("touchstart", resume, { once: true, passive: true });
-          window.addEventListener("keydown", resume, { once: true });
-        }
+          __vizRaf = requestAnimationFrame(tick);
+        };
 
         tick();
       }
 
-      // Iniciar visualizer cuando se reproduzca el audio (y también tras el primer gesto).
-      if (songEl) songEl.addEventListener("play", startVisualizer, { once: true });
-      window.addEventListener("pointerdown", startVisualizer, { once: true, passive: true });
-      window.addEventListener("touchstart", startVisualizer, { once: true, passive: true });
-      window.addEventListener("keydown", startVisualizer, { once: true });
+      if (songEl) {
+        songEl.addEventListener("play", startViz);
+        songEl.addEventListener("pause", stopViz);
+        songEl.addEventListener("ended", stopViz);
+      }
 
       // Google Form (link + embed)
       function buildGoogleFormEmbedUrl(url) {
