@@ -167,27 +167,6 @@
     <div class="mx-auto my-6 w-full max-w-2xl px-4 sm:max-w-3xl sm:px-6">
       <div class="poster-sheet overflow-hidden rounded-[2.2rem]">
 
-        <!-- Gate de audio (algunos navegadores bloquean autoplay con sonido) -->
-        <div
-          id="audioGate"
-          class="hidden fixed inset-0 z-[60] grid place-items-center bg-black/40 p-6"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Activar música"
-        >
-          <div class="poster-panel w-full max-w-md p-6 text-center">
-            <p class="poster-kicker text-xs font-semibold text-cocoa-700">MÚSICA</p>
-            <p class="mt-3 text-lg font-extrabold text-slate-900">Toca la pantalla para activar el audio 🎶</p>
-            <p class="mt-2 text-sm text-slate-700">Los navegadores bloquean el autoplay con sonido por seguridad.</p>
-            <div class="mt-4 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft">
-              <span aria-hidden="true">🔊</span>
-              <span>TOCA PARA CONTINUAR</span>
-              <span aria-hidden="true">🛟</span>
-            </div>
-            <p class="mt-3 text-xs text-slate-600">Tip: si abriste con <span class="font-mono">file://</span>, usa un servidor local.</p>
-          </div>
-        </div>
-
     <!-- Decoraciones “cutout” tipo viejo oeste (SVG embebidos, estilo silueta) -->
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
       <!-- Caballo (arriba izquierda) -->
@@ -693,16 +672,6 @@
       // - Estrategia: autoplay en mute (sí se permite) + activar sonido en el primer toque/click en cualquier parte.
       const songEl = $("songPlayer");
       const autoplayHint = $("autoplayHint");
-      const audioGate = $("audioGate");
-
-      function showAudioGate() {
-        if (!audioGate) return;
-        audioGate.classList.remove("hidden");
-      }
-      function hideAudioGate() {
-        if (!audioGate) return;
-        audioGate.classList.add("hidden");
-      }
 
       async function tryAutoplayMuted() {
         if (!songEl || !EVENT.songUrl) return;
@@ -716,15 +685,12 @@
             autoplayHint.textContent = "Toca en cualquier parte para activar el sonido. 🤠🛟";
             autoplayHint.classList.remove("hidden");
           }
-          // En iOS a veces autoplay de audio falla incluso en mute: si no está reproduciendo, abrimos gate.
-          if (songEl.paused) showAudioGate();
         } catch {
           // Si falla incluso en mute, no podemos forzarlo sin interacción.
           if (autoplayHint) {
             autoplayHint.textContent = "Tu navegador bloqueó la reproducción automática. Toca la pantalla para iniciar.";
             autoplayHint.classList.remove("hidden");
           }
-          showAudioGate();
         }
       }
 
@@ -733,7 +699,6 @@
         songEl.addEventListener("error", () => {
           autoplayHint.textContent = "No se pudo cargar la canción. Revisa la ruta del MP3 o abre la invitación con servidor local.";
           autoplayHint.classList.remove("hidden");
-          showAudioGate();
         });
       }
 
@@ -748,25 +713,21 @@
             if (p && typeof p.catch === "function") {
               p.then(() => {
                 if (autoplayHint) autoplayHint.classList.add("hidden");
-                hideAudioGate();
               }).catch(() => {
                 if (autoplayHint) {
                   autoplayHint.textContent = "Activa el sonido desde los controles del reproductor.";
                   autoplayHint.classList.remove("hidden");
                 }
-                showAudioGate();
               });
             } else {
               // Fallback viejo
               if (autoplayHint) autoplayHint.classList.add("hidden");
-              hideAudioGate();
             }
           } catch {
             if (autoplayHint) {
               autoplayHint.textContent = "Activa el sonido desde los controles del reproductor.";
               autoplayHint.classList.remove("hidden");
             }
-            showAudioGate();
           }
         };
 
