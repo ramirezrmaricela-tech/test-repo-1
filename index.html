@@ -570,6 +570,20 @@
 
                   <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <div class="min-w-0">
+                      <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">BANCO</p>
+                      <p id="giftBank" class="mt-1 break-words font-mono text-sm font-extrabold text-slate-900 sm:text-base">BBVA</p>
+                    </div>
+                    <button
+                      id="copyGiftBankBtn"
+                      type="button"
+                      class="btn-pop inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-900 shadow-soft transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-200 sm:w-auto"
+                    >
+                      📋 Copiar
+                    </button>
+                  </div>
+
+                  <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="min-w-0">
                       <p class="text-xs font-semibold tracking-[0.2em] text-slate-500">BENEFICIARIO</p>
                       <p id="giftBeneficiary" class="mt-1 break-words text-sm font-extrabold text-slate-900">CLAUDIA CECILIA VELAZQUEZ COLCHADO</p>
                     </div>
@@ -673,11 +687,12 @@
         // Pega aquí el link real de Google Maps de la iglesia
         massMapsUrl: "https://www.google.com/maps",
         // Pega aquí el link de tu Google Form (viewform)
-        googleFormUrl: "PEGA_AQUI_TU_GOOGLE_FORM",
+        googleFormUrl: "https://forms.gle/9CAa2u4MdRgdMuVZ8",
         // Opcional: link directo a un MP3/archivo de audio para el player (si no, se queda vacío)
         songUrl: "resources/music/i-love-it.mp3",
         // Regalos
         giftCardNumber: "4152 3139 6405 8460",
+        giftBank: "BBVA",
         giftClabe: "1234567899876543210",
         giftBeneficiary: "CLAUDIA CECILIA VELAZQUEZ COLCHADO",
       };
@@ -743,6 +758,7 @@
 
       // Regalos
       setTextIfExists("giftCardNumber", EVENT.giftCardNumber || "XXXX XXXX XXXX XXXX");
+      setTextIfExists("giftBank", EVENT.giftBank || "BBVA");
       setTextIfExists("giftClabe", EVENT.giftClabe || "XXXXXXXXXXXXXXXXXX");
       setTextIfExists("giftBeneficiary", EVENT.giftBeneficiary || "NOMBRE APELLIDO");
 
@@ -781,6 +797,7 @@
       }
 
       wireCopy("copyGiftCardBtn", "giftCardNumber", "Tarjeta");
+      wireCopy("copyGiftBankBtn", "giftBank", "Banco");
       wireCopy("copyGiftClabeBtn", "giftClabe", "CLABE");
       wireCopy("copyGiftBeneficiaryBtn", "giftBeneficiary", "Beneficiario");
       // Player de canción:
@@ -1050,4 +1067,3 @@
     </script>
   </body>
 </html>
-
